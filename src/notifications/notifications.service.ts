@@ -5,8 +5,8 @@ import { PrismaService } from '../prisma.service';
 export class NotificationsService {
   constructor(private prisma: PrismaService) {}
 
-  async sendCourseReminder(userId: string) {
-    const lastVisit = await this.prisma.courseProgress.findFirst({
+  async sendCourseReminder(userId: number) {
+    const lastVisit = await this.prisma.enrollment.findFirst({
       where: { userId },
       orderBy: { lastVisited: 'desc' },
     });

@@ -12,7 +12,7 @@ export class AnalyticsService {
     });
   }
 
-  async getUserProgress(userId: string) {
+  async getUserProgress(userId: number) {
     const completedTests = await this.prisma.testResult.count({
       where: { userId, passed: true },
     });

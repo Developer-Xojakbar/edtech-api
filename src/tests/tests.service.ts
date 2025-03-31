@@ -5,7 +5,7 @@ import { PrismaService } from '../prisma.service';
 export class TestsService {
   constructor(private prisma: PrismaService) {}
 
-  async submitTestResult(userId: string, testId: string, passed: boolean) {
+  async submitTestResult(userId: number, testId: number, passed: boolean) {
     await this.prisma.testResult.create({ data: { userId, testId, passed } });
 
     if (passed) {

@@ -5,7 +5,7 @@ import { PrismaService } from '../prisma.service';
 export class EnrollmentsService {
   constructor(private prisma: PrismaService) {}
 
-  async enrollUser(userId: string, courseId: string) {
+  async enrollUser(userId: number, courseId: number) {
     return this.prisma.enrollment.create({
       data: {
         userId,
@@ -14,7 +14,7 @@ export class EnrollmentsService {
     });
   }
 
-  async getUserEnrollments(userId: string) {
+  async getUserEnrollments(userId: number) {
     return this.prisma.enrollment.findMany({
       where: { userId },
       include: { course: true },

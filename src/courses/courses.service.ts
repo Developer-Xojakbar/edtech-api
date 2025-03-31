@@ -9,15 +9,19 @@ export class CoursesService {
     return this.prisma.course.findMany();
   }
 
-  async getCourseById(id: string) {
+  async getCourseById(id: number) {
     return this.prisma.course.findUnique({ where: { id } });
   }
 
-  async createCourse(data: { title: string; description?: string }) {
+  async createCourse(data: {
+    title: string;
+    description: string;
+    price: number;
+  }) {
     return this.prisma.course.create({ data });
   }
 
-  async deleteCourse(id: string) {
+  async deleteCourse(id: number) {
     return this.prisma.course.delete({ where: { id } });
   }
 }
