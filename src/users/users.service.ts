@@ -9,15 +9,15 @@ export class UsersService {
     return this.prisma.user.findMany();
   }
 
-  async getUserById(id: string) {
+  async getUserById(id: number) {
     return this.prisma.user.findUnique({ where: { id } });
   }
 
-  async createUser(data: { email: string; name?: string }) {
+  async createUser(data: { email: string; name: string; password: string }) {
     return this.prisma.user.create({ data });
   }
 
-  async deleteUser(id: string) {
+  async deleteUser(id: number) {
     return this.prisma.user.delete({ where: { id } });
   }
 }

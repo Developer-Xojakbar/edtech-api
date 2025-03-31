@@ -11,7 +11,7 @@ export class AnalyticsController {
   }
 
   @Get('progress/:userId')
-  getUserProgress(@Param('userId') userId: string) {
+  getUserProgress(@Param('userId') userId: number) {
     return this.analyticsService.getUserProgress(userId);
   }
 }

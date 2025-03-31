@@ -6,12 +6,12 @@ export class EnrollmentsController {
   constructor(private readonly enrollmentsService: EnrollmentsService) {}
 
   @Post()
-  enrollUser(@Body() data: { userId: string; courseId: string }) {
+  enrollUser(@Body() data: { userId: number; courseId: number }) {
     return this.enrollmentsService.enrollUser(data.userId, data.courseId);
   }
 
   @Get(':userId')
-  getUserEnrollments(@Param('userId') userId: string) {
+  getUserEnrollments(@Param('userId') userId: number) {
     return this.enrollmentsService.getUserEnrollments(userId);
   }
 }

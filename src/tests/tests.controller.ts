@@ -7,7 +7,7 @@ export class TestsController {
 
   @Post('submit')
   submitTest(
-    @Body() data: { userId: string; testId: string; passed: boolean },
+    @Body() data: { userId: number; testId: number; passed: boolean },
   ) {
     return this.testsService.submitTestResult(
       data.userId,

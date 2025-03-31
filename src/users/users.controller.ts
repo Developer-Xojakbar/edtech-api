@@ -11,17 +11,17 @@ export class UsersController {
   }
 
   @Get(':id')
-  getUser(@Param('id') id: string) {
+  getUser(@Param('id') id: number) {
     return this.usersService.getUserById(id);
   }
 
   @Post()
-  createUser(@Body() data: { email: string; name?: string }) {
+  createUser(@Body() data: { email: string; name: string; password: string }) {
     return this.usersService.createUser(data);
   }
 
   @Delete(':id')
-  deleteUser(@Param('id') id: string) {
+  deleteUser(@Param('id') id: number) {
     return this.usersService.deleteUser(id);
   }
 }

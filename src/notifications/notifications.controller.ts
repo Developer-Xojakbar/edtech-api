@@ -6,7 +6,7 @@ export class NotificationsController {
   constructor(private readonly notificationsService: NotificationsService) {}
 
   @Get('reminder/:userId')
-  sendReminder(@Param('userId') userId: string) {
+  sendReminder(@Param('userId') userId: number) {
     return this.notificationsService.sendCourseReminder(userId);
   }
 }

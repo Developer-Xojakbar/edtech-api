@@ -11,17 +11,19 @@ export class CoursesController {
   }
 
   @Get(':id')
-  getCourse(@Param('id') id: string) {
+  getCourse(@Param('id') id: number) {
     return this.coursesService.getCourseById(id);
   }
 
   @Post()
-  createCourse(@Body() data: { title: string; description?: string }) {
+  createCourse(
+    @Body() data: { title: string; description: string; price: number },
+  ) {
     return this.coursesService.createCourse(data);
   }
 
   @Delete(':id')
-  deleteCourse(@Param('id') id: string) {
+  deleteCourse(@Param('id') id: number) {
     return this.coursesService.deleteCourse(id);
   }
 }
